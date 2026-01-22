@@ -1,0 +1,12 @@
+pre {
+  background: #0d0f12;
+  border: 1px solid #1f2730;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: "JetBrains Mono", "Cascadia Mono", monospace;
+  color: #d1d7e0;
+}

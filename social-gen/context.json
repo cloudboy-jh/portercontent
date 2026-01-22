@@ -1,0 +1,16 @@
+{
+  "product_name": "Porter",
+  "launch_date": "2026-02-24",
+  "key_features": [
+    "GitHub-native orchestration",
+    "Local execution model",
+    "Universal agent compatibility",
+    "Simple @mention interface"
+  ],
+  "pain_points": [
+    "Managing multiple AI agent platforms",
+    "Scattered state across tools",
+    "Vendor lock-in concerns",
+    "Complex workflow setup"
+  ]
+}

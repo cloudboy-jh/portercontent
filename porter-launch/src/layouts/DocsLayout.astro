@@ -1,0 +1,15 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/shared/Header.svelte";
+import Footer from "../components/shared/Footer.svelte";
+
+const { title } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <Header client:load />
+  <main class="docs">
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>

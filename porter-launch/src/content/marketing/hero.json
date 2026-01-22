@@ -1,0 +1,7 @@
+{
+  "hero": {
+    "headline": "GitHub Issues as your agent orchestrator",
+    "subhead": "Mention @porter in any issue. Agents run locally and commit results back to your repo.",
+    "cta": "Join early access"
+  }
+}

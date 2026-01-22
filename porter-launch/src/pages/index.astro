@@ -1,0 +1,45 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import Hero from "../components/landing/Hero.svelte";
+import TerminalDemo from "../components/landing/TerminalDemo.svelte";
+import Features from "../components/landing/Features.svelte";
+import HowItWorks from "../components/landing/HowItWorks.svelte";
+import UseCases from "../components/landing/UseCases.svelte";
+import SignupForm from "../components/landing/SignupForm.svelte";
+import Button from "../components/shared/Button.svelte";
+
+import heroData from "../content/marketing/hero.json";
+import featuresData from "../content/marketing/features.json";
+import useCasesData from "../content/marketing/use-cases.json";
+
+const steps = [
+  {
+    title: "Install the Porter app",
+    detail: "Authorize repos and choose which agents to enable."
+  },
+  {
+    title: "Mention @porter",
+    detail: "Drop a request inside any GitHub issue comment."
+  },
+  {
+    title: "Agent runs locally",
+    detail: "Porter spins up the agent on your machine using your tools."
+  },
+  {
+    title: "Results commit back",
+    detail: "PRs, notes, and logs land directly in GitHub."
+  }
+];
+---
+
+<LandingLayout title="Porter | GitHub-native agents">
+  <Hero headline={heroData.hero.headline} subhead={heroData.hero.subhead} cta={heroData.hero.cta}>
+    <Button slot="cta" href="#signup">{heroData.hero.cta}</Button>
+    <Button slot="secondary" href="/docs" variant="ghost">Read docs</Button>
+    <TerminalDemo slot="terminal" />
+  </Hero>
+  <Features features={featuresData.features} />
+  <HowItWorks steps={steps} />
+  <UseCases cases={useCasesData.useCases} />
+  <SignupForm />
+</LandingLayout>

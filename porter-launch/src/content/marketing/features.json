@@ -1,0 +1,24 @@
+{
+  "features": [
+    {
+      "title": "GitHub-native state",
+      "description": "Issues become the single source of truth for every agent run.",
+      "icon": "🧭"
+    },
+    {
+      "title": "Local execution",
+      "description": "Agents run on your machine with your tools and secrets.",
+      "icon": "💻"
+    },
+    {
+      "title": "Universal agents",
+      "description": "Use Claude Code, Cursor, or any CLI-based agent.",
+      "icon": "🧩"
+    },
+    {
+      "title": "One mention",
+      "description": "Trigger workflows with a simple @porter comment.",
+      "icon": "💬"
+    }
+  ]
+}

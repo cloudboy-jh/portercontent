@@ -1,0 +1,24 @@
+{
+  "useCases": [
+    {
+      "title": "Debug CI overnight",
+      "description": "Porter runs tests and proposes fixes while you sleep.",
+      "example": "@porter investigate-ci-failure"
+    },
+    {
+      "title": "Review PRs",
+      "description": "Summarize changes and flag risks before you merge.",
+      "example": "@porter review-pr"
+    },
+    {
+      "title": "Ship features",
+      "description": "Turn issue context into working code with full traceability.",
+      "example": "@porter implement-feature"
+    },
+    {
+      "title": "Refactor safely",
+      "description": "Agents run locally so you control the environment.",
+      "example": "@porter refactor-module"
+    }
+  ]
+}
