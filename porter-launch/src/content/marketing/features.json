@@ -1,24 +1,24 @@
 {
   "features": [
     {
-      "title": "GitHub-native state",
-      "description": "Issues become the single source of truth for every agent run.",
-      "icon": "🧭"
+      "title": "Cloud-native execution",
+      "description": "Agents run on Fly Machines, not your laptop. No local setup, no dependencies.",
+      "icon": "Cloud"
     },
     {
-      "title": "Local execution",
-      "description": "Agents run on your machine with your tools and secrets.",
-      "icon": "💻"
+      "title": "Multiple agents",
+      "description": "Use Opencode, Claude Code, or Amp. Pick the right tool for the job.",
+      "icon": "Robot"
     },
     {
-      "title": "Universal agents",
-      "description": "Use Claude Code, Cursor, or any CLI-based agent.",
-      "icon": "🧩"
+      "title": "Gist-based config",
+      "description": "Store API keys and preferences in your own private GitHub Gist.",
+      "icon": "Gear"
     },
     {
-      "title": "One mention",
-      "description": "Trigger workflows with a simple @porter comment.",
-      "icon": "💬"
+      "title": "Pay per task",
+      "description": "Porter is free. You only pay for Fly Machines and API tokens you use.",
+      "icon": "CurrencyDollar"
     }
   ]
 }

@@ -14,25 +14,25 @@ import useCasesData from "../content/marketing/use-cases.json";
 
 const steps = [
   {
-    title: "Install the Porter app",
-    detail: "Authorize repos and choose which agents to enable."
+    title: "Install Porter GitHub App",
+    detail: "Grant access to repos where you want to use agents."
   },
   {
-    title: "Mention @porter",
-    detail: "Drop a request inside any GitHub issue comment."
+    title: "Create your config Gist",
+    detail: "Store API keys for Fly, Anthropic, and Amp in a private Gist."
   },
   {
-    title: "Agent runs locally",
-    detail: "Porter spins up the agent on your machine using your tools."
+    title: "Comment @porter <agent>",
+    detail: "Mention @porter opencode, @porter claude, or @porter amp in any issue."
   },
   {
-    title: "Results commit back",
-    detail: "PRs, notes, and logs land directly in GitHub."
+    title: "Get a PR back",
+    detail: "Porter spins up a Fly Machine, runs the agent, and creates a pull request."
   }
 ];
 ---
 
-<LandingLayout title="Porter | GitHub-native agents">
+<LandingLayout title="Porter | Cloud-native agents">
   <Hero headline={heroData.hero.headline} subhead={heroData.hero.subhead} cta={heroData.hero.cta}>
     <Button slot="cta" href="#signup">{heroData.hero.cta}</Button>
     <Button slot="secondary" href="/docs" variant="ghost">Read docs</Button>

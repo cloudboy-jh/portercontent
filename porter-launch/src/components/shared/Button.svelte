@@ -15,22 +15,38 @@
     padding: 0.85rem 1.6rem;
     border-radius: 999px;
     font-weight: 600;
+    font-size: 0.95rem;
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
+    letter-spacing: -0.01em;
   }
 
   .btn.primary {
-    background: linear-gradient(135deg, var(--accent-500), #7cf6ff);
-    color: #041015;
-    box-shadow: 0 12px 30px var(--glow);
+    background: var(--primary-400);
+    color: #1c1917;
+    box-shadow: 0 4px 16px var(--glow);
+    border: none;
+  }
+
+  .btn.primary:hover {
+    background: var(--primary-300);
+    box-shadow: 0 6px 24px var(--glow-strong);
+    transform: translateY(-1px);
   }
 
   .btn.ghost {
-    border: 1px solid #2a2a2a;
-    color: var(--ink-200);
+    border: 1px solid var(--border-subtle);
+    color: var(--foreground-muted);
+    background: transparent;
   }
 
-  .btn:hover {
-    transform: translateY(-2px);
+  .btn.ghost:hover {
+    border-color: var(--primary-400);
+    color: var(--primary-400);
+    background: rgba(251, 146, 60, 0.05);
+  }
+
+  .btn:active {
+    transform: translateY(0);
   }
 </style>

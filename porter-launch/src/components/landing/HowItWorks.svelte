@@ -4,13 +4,20 @@
 
 <section class="how">
   <div class="container">
-    <p class="eyebrow">Flow</p>
-    <h2>Porter runs where your code already lives</h2>
+    <header class="section-header">
+      <p class="eyebrow">How it works</p>
+      <h2>Porter runs where your code already lives</h2>
+    </header>
     <div class="steps">
       {#each steps as step, index}
         <div class="step">
-          <span class="index">0{index + 1}</span>
-          <div>
+          <div class="timeline">
+            <span class="index">0{index + 1}</span>
+            {#if index < steps.length - 1}
+              <div class="connector"></div>
+            {/if}
+          </div>
+          <div class="content">
             <h3>{step.title}</h3>
             <p>{step.detail}</p>
           </div>
@@ -22,31 +29,107 @@
 
 <style>
   .how {
-    padding: 4rem 0;
+    padding: 5rem 0;
+    background: linear-gradient(to bottom, transparent, rgba(251, 146, 60, 0.02), transparent);
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0.75rem 0 0;
+    color: var(--foreground);
   }
 
   .steps {
     display: grid;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .step {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-radius: 14px;
-    background: #101216;
-    border: 1px solid #1d2430;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    border-radius: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+  }
+
+  .step:hover {
+    border-color: var(--primary-400);
+    box-shadow: 0 0 30px rgba(251, 146, 60, 0.1);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .index {
-    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary-400);
+    background: rgba(251, 146, 60, 0.1);
+    border: 1px solid rgba(251, 146, 60, 0.2);
+    flex-shrink: 0;
+  }
+
+  .connector {
+    width: 2px;
+    height: 100%;
+    min-height: 24px;
+    background: linear-gradient(to bottom, var(--primary-400), transparent);
+    opacity: 0.3;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h3 {
+    font-size: 1.125rem;
     font-weight: 600;
-    color: var(--accent-500);
+    margin: 0 0 0.375rem;
+    color: var(--foreground);
   }
 
   p {
-    color: var(--ink-400);
+    color: var(--foreground-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .how {
+      padding: 3.5rem 0;
+    }
+
+    .step {
+      gap: 1rem;
+      padding: 1.25rem;
+    }
+
+    .index {
+      width: 36px;
+      height: 36px;
+      font-size: 0.8125rem;
+    }
   }
 </style>

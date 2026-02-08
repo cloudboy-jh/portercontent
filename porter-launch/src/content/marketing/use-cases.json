@@ -1,24 +1,24 @@
 {
   "useCases": [
     {
-      "title": "Debug CI overnight",
-      "description": "Porter runs tests and proposes fixes while you sleep.",
-      "example": "@porter investigate-ci-failure"
+      "title": "Fix bugs fast",
+      "description": "Drop a comment on any issue and get a fix in minutes.",
+      "example": "@porter opencode fix the auth bug"
     },
     {
-      "title": "Review PRs",
-      "description": "Summarize changes and flag risks before you merge.",
-      "example": "@porter review-pr"
+      "title": "Refactor code",
+      "description": "Let Claude Code handle large-scale refactors across your codebase.",
+      "example": "@porter claude refactor to TypeScript"
     },
     {
-      "title": "Ship features",
-      "description": "Turn issue context into working code with full traceability.",
-      "example": "@porter implement-feature"
+      "title": "Write tests",
+      "description": "Generate comprehensive test coverage with Amp.",
+      "example": "@porter amp write unit tests"
     },
     {
-      "title": "Refactor safely",
-      "description": "Agents run locally so you control the environment.",
-      "example": "@porter refactor-module"
+      "title": "Update dependencies",
+      "description": "Automate dependency updates and migration PRs.",
+      "example": "@porter opencode upgrade to React 19"
     }
   ]
 }

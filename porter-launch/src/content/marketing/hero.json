@@ -1,7 +1,7 @@
 {
   "hero": {
-    "headline": "GitHub Issues as your agent orchestrator",
-    "subhead": "Mention @porter in any issue. Agents run locally and commit results back to your repo.",
+    "headline": "AI agents that live in the cloud, not your laptop",
+    "subhead": "Comment @porter opencode on any GitHub issue. We spin up a Fly Machine, run the agent, and send you a PR.",
     "cta": "Join early access"
   }
 }
