@@ -61,8 +61,8 @@
   .site-header {
     padding: 1rem 0;
     border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(14px);
-    background: rgba(12, 10, 9, 0.75);
+    backdrop-filter: blur(20px);
+    background: var(--surface);
     position: sticky;
     top: 0;
     z-index: 10;
@@ -145,7 +145,7 @@
 
   .theme-toggle:hover {
     color: var(--foreground);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--surface-elevated);
   }
 
   @media (max-width: 720px) {

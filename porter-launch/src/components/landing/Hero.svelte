@@ -82,7 +82,6 @@
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 1.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
   /* Responsive */

@@ -26,15 +26,15 @@
   --neutral-950: #0c0a09;
   
   /* Semantic tokens */
-  --background: #0c0a09;
-  --background-elevated: #1c1917;
-  --surface: #1c1917;
-  --surface-elevated: #292524;
+  --background: #0a0909;
+  --background-elevated: #131211;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-elevated: rgba(255, 255, 255, 0.06);
   --foreground: #fafaf9;
   --foreground-muted: #a8a29e;
   --foreground-subtle: #78716c;
-  --border: #292524;
-  --border-subtle: #44403c;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.15);
   
   /* Glow effects */
   --glow: rgba(251, 146, 60, 0.25);
@@ -58,15 +58,15 @@
 /* Light mode support - explicit class for toggle */
 html.light {
   color-scheme: light;
-  --background: #fafaf9;
-  --background-elevated: #ffffff;
-  --surface: #f5f5f4;
-  --surface-elevated: #ffffff;
+  --background: #ffffff;
+  --background-elevated: #fafaf9;
+  --surface: rgba(0, 0, 0, 0.02);
+  --surface-elevated: rgba(0, 0, 0, 0.04);
   --foreground: #1c1917;
   --foreground-muted: #57534e;
   --foreground-subtle: #78716c;
-  --border: #e7e5e4;
-  --border-subtle: #d6d3d1;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.15);
   --glow: rgba(251, 146, 60, 0.15);
   --glow-strong: rgba(251, 146, 60, 0.25);
 }
@@ -75,15 +75,15 @@ html.light {
 @media (prefers-color-scheme: light) {
   :root:not(.dark):not(.light) {
     color-scheme: light;
-    --background: #fafaf9;
-    --background-elevated: #ffffff;
-    --surface: #f5f5f4;
-    --surface-elevated: #ffffff;
+    --background: #ffffff;
+    --background-elevated: #fafaf9;
+    --surface: rgba(0, 0, 0, 0.02);
+    --surface-elevated: rgba(0, 0, 0, 0.04);
     --foreground: #1c1917;
     --foreground-muted: #57534e;
     --foreground-subtle: #78716c;
-    --border: #e7e5e4;
-    --border-subtle: #d6d3d1;
+    --border: rgba(0, 0, 0, 0.08);
+    --border-subtle: rgba(0, 0, 0, 0.15);
     --glow: rgba(251, 146, 60, 0.15);
     --glow-strong: rgba(251, 146, 60, 0.25);
   }

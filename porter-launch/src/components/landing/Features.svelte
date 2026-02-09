@@ -57,16 +57,15 @@
   .card {
     padding: 1.75rem;
     border-radius: 16px;
-    background: var(--surface);
+    background: transparent;
     border: 1px solid var(--border);
     transition: all 0.2s ease;
   }
 
   .card:hover {
     border-color: var(--border-subtle);
-    background: var(--surface-elevated);
+    background: rgba(255, 255, 255, 0.02);
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   }
 
   .icon-wrapper {
@@ -76,8 +75,8 @@
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: rgba(251, 146, 60, 0.1);
-    border: 1px solid rgba(251, 146, 60, 0.2);
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
     margin-bottom: 1rem;
   }
 
