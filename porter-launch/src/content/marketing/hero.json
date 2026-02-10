@@ -1,7 +1,7 @@
 {
   "hero": {
-    "headline": "AI agents that live in the cloud, not your laptop",
-    "subhead": "Comment @porter opencode on any GitHub issue. We spin up a Fly Machine, run the agent, and send you a PR.",
-    "cta": "Join early access"
+    "headline": "Turn GitHub issues into pull requests with one comment",
+    "subhead": "Comment @porter on any GitHub issue. A Fly Machine spins up, runs your agent, and opens a PR.",
+    "cta": "Get started"
   }
 }

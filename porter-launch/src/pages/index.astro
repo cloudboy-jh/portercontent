@@ -13,24 +13,24 @@ import useCasesData from "../content/marketing/use-cases.json";
 
 const steps = [
   {
-    title: "Install Porter GitHub App",
-    detail: "Grant scoped repository access so Porter can read issues, push branches, and open PRs.",
-    outcome: "Result: repository events and write paths are enabled for automation."
+    title: "Install the GitHub App",
+    detail: "Add Porter to your repos. It gets just enough access to read issues and open PRs.",
+    outcome: "Porter can now watch for @porter mentions."
   },
   {
-    title: "Create your config Gist",
-    detail: "Store Fly and model-provider credentials in a private Gist tied to your GitHub identity.",
-    outcome: "Result: each task receives runtime secrets without hardcoding credentials."
+    title: "Add your API keys",
+    detail: "Create a private Gist with your Fly token and model provider keys.",
+    outcome: "Each task gets your credentials at runtime. Nothing is stored on our side."
   },
   {
-    title: "Comment @porter <agent>",
-    detail: "Trigger execution directly in issue comments using @porter opencode, @porter claude, or @porter amp.",
-    outcome: "Result: webhook ingestion, prompt enrichment, and worker provisioning begin automatically."
+    title: "Comment @porter on an issue",
+    detail: "Pick an agent — @porter opencode, @porter claude, or @porter amp.",
+    outcome: "Porter reads the issue, builds a prompt, and spins up a Fly Machine."
   },
   {
-    title: "Get a PR back",
-    detail: "Porter runs the selected agent in an isolated Fly Machine and returns status plus PR link in-thread.",
-    outcome: "Result: full audit trail across issue, branch, and pull request lifecycle."
+    title: "Review the PR",
+    detail: "The agent clones your repo, does the work, and opens a pull request.",
+    outcome: "Full trail from issue to branch to PR, all in one thread."
   }
 ];
 ---
