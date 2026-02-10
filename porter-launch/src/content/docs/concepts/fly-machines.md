@@ -1,5 +1,5 @@
 ---
-title: "Fly Machines Execution"
+title: "Fly Machines execution"
 description: "Provisioning model, runtime configuration, and lifecycle of ephemeral workers."
 slug: "docs/concepts/fly-machines"
 category: "concepts"

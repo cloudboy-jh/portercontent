@@ -1,5 +1,5 @@
 ---
-title: "Worker Runtime"
+title: "Worker runtime"
 description: "Container build, entrypoint flow, and execution guarantees for worker tasks."
 slug: "docs/concepts/worker-runtime"
 category: "concepts"

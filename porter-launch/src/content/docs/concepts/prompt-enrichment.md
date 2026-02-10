@@ -1,5 +1,5 @@
 ---
-title: "Prompt Enrichment"
+title: "Prompt enrichment"
 description: "Prompt contract Porter constructs from issue payloads and repository metadata."
 slug: "docs/concepts/prompt-enrichment"
 category: "concepts"

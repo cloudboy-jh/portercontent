@@ -1,5 +1,5 @@
 ---
-title: "GitHub App Permissions"
+title: "GitHub app permissions"
 description: "Minimum repository permissions and event scope needed for Porter workflows."
 slug: "docs/api/github-app-permissions"
 category: "api"

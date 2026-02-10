@@ -1,5 +1,5 @@
 ---
-title: "Core Flow"
+title: "Core flow"
 description: "Lifecycle from `@porter` command to callback, issue update, and pull request."
 slug: "docs/concepts/core-flow"
 category: "concepts"

@@ -1,5 +1,5 @@
 ---
-title: "Webhooks And Callbacks"
+title: "Webhooks and callbacks"
 description: "Inbound GitHub trigger contracts and outbound worker completion signaling."
 slug: "docs/api/webhooks-and-callbacks"
 category: "api"

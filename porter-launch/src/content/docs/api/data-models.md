@@ -1,5 +1,5 @@
 ---
-title: "Data Models"
+title: "Data models"
 description: "Canonical task and configuration shapes used throughout Porter runtime."
 slug: "docs/api/data-models"
 category: "api"

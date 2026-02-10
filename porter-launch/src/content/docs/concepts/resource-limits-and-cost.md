@@ -1,5 +1,5 @@
 ---
-title: "Resource Limits And Cost"
+title: "Resource limits and cost"
 description: "Execution limits, concurrency boundaries, and practical cost expectations."
 slug: "docs/concepts/resource-limits-and-cost"
 category: "concepts"

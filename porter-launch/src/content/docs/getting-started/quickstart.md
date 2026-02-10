@@ -1,5 +1,5 @@
 ---
-title: "Quickstart"
+title: "Quick start"
 description: "From first sign-in to validated issue-to-PR execution in one guided path."
 slug: "docs/getting-started/quickstart"
 category: "getting-started"
@@ -18,7 +18,7 @@ Use this page when you want a reliable first run, not just a demo. You will veri
 - API credentials for your chosen model provider and Fly.
 - Access to the Porter web app.
 
-## 1) Sign in with GitHub
+## Step 1: Sign in with GitHub
 
 Authenticate in the Porter web app using the same GitHub identity that owns or contributes to your target repository.
 
@@ -27,7 +27,7 @@ Why this matters:
 - Porter links webhook events, user config, and execution ownership through your GitHub identity.
 - If the wrong account signs in, Porter may not find your repository or config Gist.
 
-## 2) Install the Porter GitHub App
+## Step 2: Install the Porter GitHub App
 
 Install the Porter GitHub App and grant repository access for repos where Porter should respond to issue comments.
 
@@ -36,7 +36,7 @@ Recommended scope:
 - Start with one test repository.
 - Expand permissions to more repos after your first successful run.
 
-## 3) Create your config Gist
+## Step 3: Create your config gist
 
 Create a private GitHub Gist with execution credentials and a default agent.
 
@@ -55,7 +55,7 @@ Notes:
 - Use valid keys only; malformed values are a common cause of failed first runs.
 - `default_agent` is used when a command omits an explicit agent name.
 
-## 4) Run your first task
+## Step 4: Run your first task
 
 Create a GitHub issue with a simple request, then add one command comment:
 

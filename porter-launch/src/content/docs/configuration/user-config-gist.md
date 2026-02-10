@@ -1,5 +1,5 @@
 ---
-title: "User Config Gist"
+title: "User config gist"
 description: "Secure per-user runtime configuration pattern using private GitHub Gists."
 slug: "docs/configuration/user-config-gist"
 category: "configuration"

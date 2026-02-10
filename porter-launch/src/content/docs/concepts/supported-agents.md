@@ -1,5 +1,5 @@
 ---
-title: "Supported Agents"
+title: "Supported agents"
 description: "Agent CLI compatibility, invocation patterns, and selection guidance."
 slug: "docs/concepts/supported-agents"
 category: "concepts"
