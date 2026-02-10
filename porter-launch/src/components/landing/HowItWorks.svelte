@@ -1,5 +1,9 @@
 <script lang="ts">
-  export let steps: Array<{ title: string; detail: string }>;
+  import { AppWindow, Key, ChatCircleText, GitPullRequest } from "phosphor-svelte";
+
+  export let steps: Array<{ title: string; detail: string; outcome?: string }>;
+
+  const icons = [AppWindow, Key, ChatCircleText, GitPullRequest];
 </script>
 
 <section class="how">
@@ -13,6 +17,7 @@
         <div class="step">
           <div class="timeline">
             <span class="index">0{index + 1}</span>
+            <span class="icon"><svelte:component this={icons[index] ?? AppWindow} size={16} weight="bold" /></span>
             {#if index < steps.length - 1}
               <div class="connector"></div>
             {/if}
@@ -20,6 +25,9 @@
           <div class="content">
             <h3>{step.title}</h3>
             <p>{step.detail}</p>
+            {#if step.outcome}
+              <p class="outcome">{step.outcome}</p>
+            {/if}
           </div>
         </div>
       {/each}
@@ -70,7 +78,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .index {
@@ -86,6 +94,18 @@
     background: rgba(251, 146, 60, 0.1);
     border: 1px solid rgba(251, 146, 60, 0.2);
     flex-shrink: 0;
+  }
+
+  .icon {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--foreground-muted);
+    border: 1px solid var(--border-subtle);
+    background: var(--surface-elevated);
   }
 
   .connector {
@@ -114,6 +134,12 @@
     font-size: 0.9375rem;
     line-height: 1.6;
     margin: 0;
+  }
+
+  .outcome {
+    margin-top: 0.6rem;
+    font-size: 0.84rem;
+    color: var(--foreground-subtle);
   }
 
   @media (max-width: 640px) {

@@ -8,8 +8,22 @@ const { title = "Porter" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Porter - GitHub-native agents that run locally" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/images/porter-icon.png" />
     <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          root.classList.add(savedTheme);
+          root.classList.remove(savedTheme === "dark" ? "light" : "dark");
+          return;
+        }
+
+        const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        root.classList.add(prefersLight ? "light" : "dark");
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

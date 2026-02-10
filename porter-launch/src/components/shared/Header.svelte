@@ -5,12 +5,13 @@
   let isDark = true;
   
   onMount(() => {
-    // Check for saved theme preference or default to dark
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       isDark = savedTheme === 'dark';
+    } else if (document.documentElement.classList.contains('light')) {
+      isDark = false;
     } else {
-      isDark = true; // Default to dark
+      isDark = !window.matchMedia('(prefers-color-scheme: light)').matches;
     }
     applyTheme();
   });

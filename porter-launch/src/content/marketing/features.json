@@ -1,23 +1,23 @@
 {
   "features": [
     {
-      "title": "Cloud-native execution",
-      "description": "Agents run on Fly Machines, not your laptop. No local setup, no dependencies.",
+      "title": "Isolated cloud execution",
+      "description": "Every task runs in an ephemeral Fly Machine, so engineers avoid local setup drift and teams get consistent runtime behavior.",
       "icon": "Cloud"
     },
     {
-      "title": "Multiple agents",
-      "description": "Use Opencode, Claude Code, or Amp. Pick the right tool for the job.",
+      "title": "Multi-agent orchestration",
+      "description": "Route the same issue workflow through Opencode, Claude, or Amp without changing your developer surface area in GitHub.",
       "icon": "Robot"
     },
     {
-      "title": "Gist-based config",
-      "description": "Store API keys and preferences in your own private GitHub Gist.",
+      "title": "User-owned configuration",
+      "description": "Keep credentials and defaults in private GitHub Gists, preserving user ownership while enabling secure runtime injection.",
       "icon": "Gear"
     },
     {
-      "title": "Pay per task",
-      "description": "Porter is free. You only pay for Fly Machines and API tokens you use.",
+      "title": "Transparent cost model",
+      "description": "Porter adds no hidden platform tax: you pay only for machine time and model tokens consumed by actual tasks.",
       "icon": "CurrencyDollar"
     }
   ]

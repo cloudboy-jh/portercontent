@@ -1,24 +1,24 @@
 {
   "useCases": [
     {
-      "title": "Fix bugs fast",
-      "description": "Drop a comment on any issue and get a fix in minutes.",
-      "example": "@porter opencode fix the auth bug"
+      "title": "P0 bug triage to patch",
+      "description": "When production regressions hit, trigger a focused fix directly from the incident issue and get a reviewable PR without context switching tools.",
+      "example": "@porter opencode reproduce and patch oauth callback mismatch from logs in issue body"
     },
     {
-      "title": "Refactor code",
-      "description": "Let Claude Code handle large-scale refactors across your codebase.",
-      "example": "@porter claude refactor to TypeScript"
+      "title": "Cross-file refactor execution",
+      "description": "Use issue-scoped plans to drive larger architecture cleanups while preserving one auditable thread from request to merged code.",
+      "example": "@porter claude migrate legacy REST handlers to shared service layer and preserve existing contracts"
     },
     {
-      "title": "Write tests",
-      "description": "Generate comprehensive test coverage with Amp.",
-      "example": "@porter amp write unit tests"
+      "title": "Coverage hardening before release",
+      "description": "Generate targeted unit and integration tests around risky code paths before cutover windows or major dependency upgrades.",
+      "example": "@porter amp add tests for checkout retry, timeout fallback, and webhook signature edge cases"
     },
     {
-      "title": "Update dependencies",
-      "description": "Automate dependency updates and migration PRs.",
-      "example": "@porter opencode upgrade to React 19"
+      "title": "Dependency and platform upgrades",
+      "description": "Automate framework and package migrations with explicit acceptance criteria in the issue to reduce manual upgrade toil.",
+      "example": "@porter opencode upgrade to react 19, replace deprecated APIs, and include migration notes in PR"
     }
   ]
 }

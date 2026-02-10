@@ -1,0 +1,40 @@
+---
+const { siteTitleHref } = Astro.props;
+---
+
+<a href={siteTitleHref} class="site-title sl-flex" aria-label="Porter Docs home">
+  <img src="/images/porter-header.png" alt="Porter" />
+  <span class="docs-label">Docs</span>
+</a>
+
+<style>
+  .site-title {
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--sl-color-white);
+    white-space: nowrap;
+  }
+
+  img {
+    height: calc(var(--sl-nav-height) - 2 * var(--sl-nav-pad-y));
+    width: auto;
+    object-fit: contain;
+    object-position: 0 50%;
+  }
+
+  .docs-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sl-color-text);
+    border: 1px solid color-mix(in oklab, var(--sl-color-accent) 30%, var(--sl-color-hairline));
+    background: color-mix(in oklab, var(--sl-color-accent-low) 20%, transparent);
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+  }
+</style>

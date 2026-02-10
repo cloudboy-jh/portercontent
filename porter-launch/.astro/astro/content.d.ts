@@ -1,4 +1,15 @@
 declare module 'astro:content' {
+	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+			components: import('astro').MDXInstance<{}>['components'];
+		}>;
+	}
+}
+
+declare module 'astro:content' {
 	interface RenderResult {
 		Content: import('astro/runtime/server/index.js').AstroComponentFactory;
 		headings: import('astro').MarkdownHeading[];
@@ -141,20 +152,104 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"docs": {
+"api/data-models.md": {
+	id: "api/data-models.md";
+  slug: "docs/api/data-models";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"api/endpoints.md": {
+	id: "api/endpoints.md";
+  slug: "docs/api/endpoints";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"api/github-app-permissions.md": {
+	id: "api/github-app-permissions.md";
+  slug: "docs/api/github-app-permissions";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"api/webhooks-and-callbacks.md": {
+	id: "api/webhooks-and-callbacks.md";
+  slug: "docs/api/webhooks-and-callbacks";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
 "concepts/architecture.md": {
 	id: "concepts/architecture.md";
-  slug: "concepts/architecture";
+  slug: "docs/concepts/architecture";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"concepts/core-flow.md": {
+	id: "concepts/core-flow.md";
+  slug: "docs/concepts/core-flow";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"concepts/fly-machines.md": {
+	id: "concepts/fly-machines.md";
+  slug: "docs/concepts/fly-machines";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"concepts/prompt-enrichment.md": {
+	id: "concepts/prompt-enrichment.md";
+  slug: "docs/concepts/prompt-enrichment";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"concepts/resource-limits-and-cost.md": {
+	id: "concepts/resource-limits-and-cost.md";
+  slug: "docs/concepts/resource-limits-and-cost";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"concepts/supported-agents.md": {
+	id: "concepts/supported-agents.md";
+  slug: "docs/concepts/supported-agents";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"concepts/worker-runtime.md": {
+	id: "concepts/worker-runtime.md";
+  slug: "docs/concepts/worker-runtime";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"configuration/user-config-gist.md": {
+	id: "configuration/user-config-gist.md";
+  slug: "docs/configuration/user-config-gist";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".md"] };
 "getting-started/quickstart.md": {
 	id: "getting-started/quickstart.md";
-  slug: "getting-started/quickstart";
+  slug: "docs/getting-started/quickstart";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".md"] };
+"index.mdx": {
+	id: "index.mdx";
+  slug: "docs";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
 };
 
 	};

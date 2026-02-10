@@ -16,6 +16,7 @@
     <header class="section-header">
       <p class="eyebrow">Why Porter</p>
       <h2>One orchestrator, zero lock-in</h2>
+      <p class="subhead">Porter standardizes request, execution, and reporting flow across agents while keeping GitHub as your team interface.</p>
     </header>
     <div class="grid">
       {#each features as feature}
@@ -40,6 +41,12 @@
     margin-bottom: 3rem;
   }
 
+  .subhead {
+    margin: 0.8rem 0 0;
+    max-width: 68ch;
+    color: var(--foreground-muted);
+  }
+
   h2 {
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 700;
@@ -59,6 +66,7 @@
     border-radius: 16px;
     background: transparent;
     border: 1px solid var(--border);
+    border-top-color: rgba(251, 146, 60, 0.4);
     transition: all 0.2s ease;
   }
 

@@ -1,8 +1,9 @@
-/* Porter Design Tokens - Based on design audit */
-:root {
+/* Porter Design Tokens */
+:root,
+html.dark {
   color-scheme: dark;
-  
-  /* Primary accent - warm orange */
+
+  /* Primitive tokens */
   --primary: #fb923c;
   --primary-50: #fff7ed;
   --primary-100: #ffedd5;
@@ -12,7 +13,6 @@
   --primary-500: #f97316;
   --primary-600: #ea580c;
   
-  /* Warm neutrals */
   --neutral-50: #fafaf9;
   --neutral-100: #f5f5f4;
   --neutral-200: #e7e5e4;
@@ -36,9 +36,33 @@
   --border: rgba(255, 255, 255, 0.08);
   --border-subtle: rgba(255, 255, 255, 0.15);
   
-  /* Glow effects */
   --glow: rgba(251, 146, 60, 0.25);
   --glow-strong: rgba(251, 146, 60, 0.4);
+
+  /* Docs component tokens */
+  --docs-sidebar-border: rgba(255, 255, 255, 0.09);
+  --docs-nav-bg-hover: rgba(255, 255, 255, 0.06);
+  --docs-nav-fg: #d6d3d1;
+  --docs-nav-fg-active: #fafaf9;
+  --docs-toc-fg: #a8a29e;
+  --docs-card-bg: rgba(255, 255, 255, 0.03);
+  --docs-card-bg-soft: rgba(255, 255, 255, 0.015);
+  --docs-card-border: rgba(255, 255, 255, 0.08);
+  --docs-card-border-hover: rgba(251, 146, 60, 0.45);
+  --docs-shadow-color: rgba(0, 0, 0, 0.2);
+  --docs-table-border: rgba(255, 255, 255, 0.15);
+  --docs-table-header-bg: rgba(255, 255, 255, 0.05);
+  --docs-inline-code-fg: #fdba74;
+  --docs-inline-code-bg: rgba(251, 146, 60, 0.12);
+  --docs-inline-code-border: rgba(251, 146, 60, 0.3);
+  --docs-search-bg: rgba(255, 255, 255, 0.03);
+  --docs-search-border: rgba(255, 255, 255, 0.1);
+  --docs-code-border: #1e2630;
+  --docs-code-header-bg: #111821;
+  --docs-code-button-border: #2d3743;
+  --syntax-pre-bg: #0d0f12;
+  --syntax-pre-border: #1f2730;
+  --syntax-code-fg: #d1d7e0;
   
   /* Legacy aliases for backward compatibility */
   --ink-50: var(--neutral-50);
@@ -55,7 +79,6 @@
   --accent-600: var(--primary-500);
 }
 
-/* Light mode support - explicit class for toggle */
 html.light {
   color-scheme: light;
   --background: #ffffff;
@@ -69,11 +92,36 @@ html.light {
   --border-subtle: rgba(0, 0, 0, 0.15);
   --glow: rgba(251, 146, 60, 0.15);
   --glow-strong: rgba(251, 146, 60, 0.25);
+
+  --docs-sidebar-border: rgba(28, 25, 23, 0.14);
+  --docs-nav-bg-hover: rgba(28, 25, 23, 0.06);
+  --docs-nav-fg: #44403c;
+  --docs-nav-fg-active: #1c1917;
+  --docs-toc-fg: #57534e;
+  --docs-card-bg: rgba(255, 255, 255, 0.9);
+  --docs-card-bg-soft: rgba(255, 255, 255, 0.95);
+  --docs-card-border: rgba(28, 25, 23, 0.12);
+  --docs-card-border-hover: rgba(234, 88, 12, 0.55);
+  --docs-shadow-color: rgba(28, 25, 23, 0.08);
+  --docs-table-border: rgba(28, 25, 23, 0.14);
+  --docs-table-header-bg: rgba(28, 25, 23, 0.05);
+  --docs-inline-code-fg: #9a3412;
+  --docs-inline-code-bg: rgba(251, 146, 60, 0.16);
+  --docs-inline-code-border: rgba(251, 146, 60, 0.35);
+  --docs-search-bg: rgba(255, 255, 255, 0.95);
+  --docs-search-border: rgba(28, 25, 23, 0.14);
+  --docs-code-border: rgba(28, 25, 23, 0.16);
+  --docs-code-header-bg: rgba(28, 25, 23, 0.06);
+  --docs-code-button-border: rgba(28, 25, 23, 0.22);
+  --syntax-pre-bg: #f6f5f3;
+  --syntax-pre-border: rgba(28, 25, 23, 0.15);
+  --syntax-code-fg: #1c1917;
 }
 
 /* System preference fallback */
 @media (prefers-color-scheme: light) {
-  :root:not(.dark):not(.light) {
+  :root:not(.dark):not(.light),
+  html:not(.dark):not(.light) {
     color-scheme: light;
     --background: #ffffff;
     --background-elevated: #fafaf9;
@@ -86,6 +134,30 @@ html.light {
     --border-subtle: rgba(0, 0, 0, 0.15);
     --glow: rgba(251, 146, 60, 0.15);
     --glow-strong: rgba(251, 146, 60, 0.25);
+
+    --docs-sidebar-border: rgba(28, 25, 23, 0.14);
+    --docs-nav-bg-hover: rgba(28, 25, 23, 0.06);
+    --docs-nav-fg: #44403c;
+    --docs-nav-fg-active: #1c1917;
+    --docs-toc-fg: #57534e;
+    --docs-card-bg: rgba(255, 255, 255, 0.9);
+    --docs-card-bg-soft: rgba(255, 255, 255, 0.95);
+    --docs-card-border: rgba(28, 25, 23, 0.12);
+    --docs-card-border-hover: rgba(234, 88, 12, 0.55);
+    --docs-shadow-color: rgba(28, 25, 23, 0.08);
+    --docs-table-border: rgba(28, 25, 23, 0.14);
+    --docs-table-header-bg: rgba(28, 25, 23, 0.05);
+    --docs-inline-code-fg: #9a3412;
+    --docs-inline-code-bg: rgba(251, 146, 60, 0.16);
+    --docs-inline-code-border: rgba(251, 146, 60, 0.35);
+    --docs-search-bg: rgba(255, 255, 255, 0.95);
+    --docs-search-border: rgba(28, 25, 23, 0.14);
+    --docs-code-border: rgba(28, 25, 23, 0.16);
+    --docs-code-header-bg: rgba(28, 25, 23, 0.06);
+    --docs-code-button-border: rgba(28, 25, 23, 0.22);
+    --syntax-pre-bg: #f6f5f3;
+    --syntax-pre-border: rgba(28, 25, 23, 0.15);
+    --syntax-code-fg: #1c1917;
   }
 }
 
@@ -163,7 +235,7 @@ main {
   border-radius: 999px;
   padding: 0.25rem 0.875rem;
   border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--surface-elevated);
   font-size: 0.8rem;
   font-weight: 500;
 }
@@ -173,7 +245,7 @@ main {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 24px var(--docs-shadow-color);
 }
 
 /* Focus states */

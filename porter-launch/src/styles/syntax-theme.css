@@ -1,6 +1,6 @@
 pre {
-  background: #0d0f12;
-  border: 1px solid #1f2730;
+  background: var(--syntax-pre-bg);
+  border: 1px solid var(--syntax-pre-border);
   border-radius: 10px;
   padding: 1rem 1.25rem;
   overflow-x: auto;
@@ -8,5 +8,5 @@ pre {
 
 code {
   font-family: "JetBrains Mono", "Cascadia Mono", monospace;
-  color: #d1d7e0;
+  color: var(--syntax-code-fg);
 }

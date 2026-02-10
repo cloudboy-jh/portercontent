@@ -8,7 +8,6 @@
     </div>
     <nav class="links">
       <a href="/docs">Docs</a>
-      <a href="/docs/roadmap">Roadmap</a>
       <a href="https://github.com">GitHub</a>
     </nav>
   </div>

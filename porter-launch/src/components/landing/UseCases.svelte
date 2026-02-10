@@ -1,5 +1,9 @@
 <script lang="ts">
+  import { BugBeetle, ArrowsClockwise, TestTube, ArrowSquareUpRight } from "phosphor-svelte";
+
   export let cases: Array<{ title: string; description: string; example: string }>;
+
+  const icons = [BugBeetle, ArrowsClockwise, TestTube, ArrowSquareUpRight];
 </script>
 
 <section class="use-cases">
@@ -9,8 +13,11 @@
       <h2>Real workflows, real issues</h2>
     </header>
     <div class="grid">
-      {#each cases as entry}
+      {#each cases as entry, index}
         <article class="card">
+          <div class="icon-wrap">
+            <svelte:component this={icons[index] ?? ArrowSquareUpRight} size={18} weight="duotone" />
+          </div>
           <h3>{entry.title}</h3>
           <p>{entry.description}</p>
           <div class="example">
@@ -60,6 +67,19 @@
     transform: translateY(-2px);
   }
 
+  .icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+    color: var(--primary-400);
+    background: rgba(251, 146, 60, 0.08);
+    margin-bottom: 0.75rem;
+  }
+
   h3 {
     font-size: 1.125rem;
     font-weight: 600;
@@ -75,9 +95,10 @@
   }
 
   .example {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 0.45rem;
     padding: 0.75rem 1rem;
     background: rgba(251, 146, 60, 0.05);
     border: 1px solid rgba(251, 146, 60, 0.15);
@@ -93,6 +114,7 @@
 
   code {
     color: var(--foreground-muted);
+    line-height: 1.4;
   }
 
   @media (max-width: 640px) {

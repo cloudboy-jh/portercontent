@@ -1,11 +1,50 @@
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
+
+import starlight from "@astrojs/starlight";
+
+const disableSitemap = () => ({
+  name: "@astrojs/sitemap",
+  hooks: {}
+});
 
 export default defineConfig({
   site: "https://porter.dev",
-  integrations: [svelte(), tailwind(), sitemap()],
+  integrations: [
+    disableSitemap(),
+    starlight({
+      title: "Porter",
+      description: "GitHub-native orchestration docs for agent execution workflows.",
+      favicon: "/images/porter-icon.png",
+      customCss: ["./src/styles/starlight-custom.css"],
+      components: {
+        SiteTitle: "./src/components/starlight/SiteTitle.astro",
+        ThemeSelect: "./src/components/starlight/ThemeSelect.astro"
+      },
+      lastUpdated: true,
+      sidebar: [
+        {
+          label: "Quick Start",
+          autogenerate: { directory: "getting-started" }
+        },
+        {
+          label: "Concepts",
+          autogenerate: { directory: "concepts" }
+        },
+        {
+          label: "Configuration",
+          autogenerate: { directory: "configuration" }
+        },
+        {
+          label: "API",
+          autogenerate: { directory: "api" }
+        }
+      ]
+    }),
+    svelte(),
+    tailwind()
+  ],
   output: "static",
   build: {
     inlineStylesheets: "auto"
@@ -15,8 +54,7 @@ export default defineConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            landing: ["./src/components/landing"],
-            docs: ["./src/components/docs"]
+            landing: ["./src/components/landing"]
           }
         }
       }

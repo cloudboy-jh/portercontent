@@ -1,20 +1,16 @@
 import { defineCollection, z } from "astro:content";
+import { docsSchema } from "@astrojs/starlight/schema";
 
 const docsCollection = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    category: z.enum([
-      "getting-started",
-      "concepts",
-      "configuration",
-      "api",
-      "examples",
-      "guides"
-    ]),
-    order: z.number().optional(),
-    updated: z.date().optional()
+  schema: docsSchema({
+    extend: z.object({
+      category: z
+        .enum(["getting-started", "concepts", "configuration", "api", "examples", "guides"])
+        .optional(),
+      order: z.number().optional(),
+      updated: z.date().optional()
+    })
   })
 });
 
