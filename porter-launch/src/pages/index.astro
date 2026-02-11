@@ -2,35 +2,33 @@
 import LandingLayout from "../layouts/LandingLayout.astro";
 import Hero from "../components/landing/Hero.svelte";
 import TerminalDemo from "../components/landing/TerminalDemo.svelte";
-import Features from "../components/landing/Features.svelte";
 import HowItWorks from "../components/landing/HowItWorks.svelte";
 import UseCases from "../components/landing/UseCases.svelte";
 import Button from "../components/shared/Button.svelte";
 
 import heroData from "../content/marketing/hero.json";
-import featuresData from "../content/marketing/features.json";
 import useCasesData from "../content/marketing/use-cases.json";
 
 const steps = [
   {
     title: "Install the GitHub App",
     detail: "Add Porter to your repos. It gets just enough access to read issues and open PRs.",
-    outcome: "Porter can now watch for @porter mentions."
+    outcome: "Porter watches for @porter mentions — nothing else."
   },
   {
     title: "Add your API keys",
     detail: "Create a private Gist with your Fly token and model provider keys.",
-    outcome: "Each task gets your credentials at runtime. Nothing is stored on our side."
+    outcome: "Your credentials, your Gist. Porter reads them at runtime, never stores them."
   },
   {
     title: "Comment @porter on an issue",
     detail: "Pick an agent — @porter opencode, @porter claude, or @porter amp.",
-    outcome: "Porter reads the issue, builds a prompt, and spins up a Fly Machine."
+    outcome: "Porter reads the issue, builds a prompt, and spins up a fresh Fly Machine."
   },
   {
     title: "Review the PR",
     detail: "The agent clones your repo, does the work, and opens a pull request.",
-    outcome: "Full trail from issue to branch to PR, all in one thread."
+    outcome: "Full trail from issue to branch to PR. You pay Fly compute + model tokens. No platform fee."
   }
 ];
 ---
@@ -41,7 +39,6 @@ const steps = [
     <Button slot="secondary" href="/docs" variant="ghost">Read docs</Button>
     <TerminalDemo slot="terminal" />
   </Hero>
-  <Features features={featuresData.features} />
   <HowItWorks steps={steps} />
   <UseCases cases={useCasesData.useCases} />
 </LandingLayout>

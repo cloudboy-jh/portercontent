@@ -2,23 +2,27 @@
   "useCases": [
     {
       "title": "Bug triage to patch",
-      "description": "Trigger a fix directly from the incident issue and get a reviewable PR without switching tools.",
-      "example": "@porter opencode reproduce and patch oauth callback mismatch from logs in issue body"
+      "issue": "OAuth callback mismatch in production",
+      "command": "@porter opencode reproduce and patch oauth callback mismatch from logs in issue body",
+      "pr": "Opened PR #143: Fix OAuth callback mismatch"
     },
     {
       "title": "Large refactors",
-      "description": "Drive architecture cleanups from an issue-scoped plan with one auditable thread from request to merged code.",
-      "example": "@porter claude migrate legacy REST handlers to shared service layer and preserve existing contracts"
+      "issue": "Migrate legacy REST handlers to shared service layer",
+      "command": "@porter claude migrate legacy REST handlers to shared service layer and preserve existing contracts",
+      "pr": "Opened PR #287: Migrate REST handlers to shared service layer"
     },
     {
       "title": "Test coverage before release",
-      "description": "Generate targeted tests around risky code paths before cutover windows or major dependency upgrades.",
-      "example": "@porter amp add tests for checkout retry, timeout fallback, and webhook signature edge cases"
+      "issue": "Add test coverage for checkout edge cases before v2.4 cutover",
+      "command": "@porter amp add tests for checkout retry, timeout fallback, and webhook signature edge cases",
+      "pr": "Opened PR #312: Add checkout edge case tests"
     },
     {
       "title": "Dependency upgrades",
-      "description": "Automate framework and package migrations with acceptance criteria defined in the issue.",
-      "example": "@porter opencode upgrade to react 19, replace deprecated APIs, and include migration notes in PR"
+      "issue": "Upgrade to React 19",
+      "command": "@porter opencode upgrade to react 19, replace deprecated APIs, and include migration notes in PR",
+      "pr": "Opened PR #98: Upgrade to React 19 with migration notes"
     }
   ]
 }

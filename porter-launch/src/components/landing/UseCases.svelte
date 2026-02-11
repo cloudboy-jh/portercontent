@@ -1,28 +1,36 @@
 <script lang="ts">
-  import { BugBeetle, ArrowsClockwise, TestTube, ArrowSquareUpRight } from "phosphor-svelte";
-
-  export let cases: Array<{ title: string; description: string; example: string }>;
-
-  const icons = [BugBeetle, ArrowsClockwise, TestTube, ArrowSquareUpRight];
+  export let cases: Array<{ title: string; issue: string; command: string; pr: string }>;
 </script>
 
 <section class="use-cases">
   <div class="container">
     <header class="section-header">
       <p class="eyebrow">Use cases</p>
-      <h2>Real workflows, real issues</h2>
+      <h2>What it looks like in practice</h2>
     </header>
-    <div class="grid">
-      {#each cases as entry, index}
-        <article class="card">
-          <div class="icon-wrap">
-            <svelte:component this={icons[index] ?? ArrowSquareUpRight} size={18} weight="duotone" />
-          </div>
-          <h3>{entry.title}</h3>
-          <p>{entry.description}</p>
-          <div class="example">
-            <span class="prompt">$</span>
-            <code>{entry.example}</code>
+    <div class="threads">
+      {#each cases as entry}
+        <article class="thread-wrap">
+          <p class="case-label">{entry.title}</p>
+          <div class="thread">
+            <header class="thread-header">
+              <span class="issue-dot" aria-hidden="true"></span>
+              <p class="issue-title">Issue: {entry.issue}</p>
+            </header>
+
+            <div class="comment user">
+              <p class="meta">@you · 2 minutes ago</p>
+              <p class="body">{entry.command}</p>
+            </div>
+
+            <div class="comment bot">
+              <p class="meta">@porter-bot · just now</p>
+              <ul class="status-list" aria-label="Porter status updates">
+                <li>● Spawning Fly Machine...</li>
+                <li>● Cloning repo, running agent</li>
+                <li class="success">✓ {entry.pr}</li>
+              </ul>
+            </div>
           </div>
         </article>
       {/each}
@@ -47,74 +55,86 @@
     color: var(--foreground);
   }
 
-  .grid {
+  .threads {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
-  .card {
-    background: var(--surface);
+  .thread-wrap {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .case-label {
+    margin: 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary, var(--foreground-subtle));
+  }
+
+  .thread {
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.75rem;
-    transition: all 0.2s ease;
+    border-radius: 2px;
+    background: var(--bg-surface, var(--surface));
   }
 
-  .card:hover {
-    border-color: var(--border-subtle);
-    background: var(--surface-elevated);
-    transform: translateY(-2px);
-  }
-
-  .icon-wrap {
-    display: inline-flex;
+  .thread-header {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    border: 1px solid var(--border-subtle);
-    color: var(--primary-400);
-    background: rgba(251, 146, 60, 0.08);
-    margin-bottom: 0.75rem;
+    gap: 0.625rem;
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--border);
   }
 
-  h3 {
-    font-size: 1.125rem;
+  .issue-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ef4444;
+    flex-shrink: 0;
+  }
+
+  .issue-title {
+    margin: 0;
+    color: var(--text-primary, var(--foreground));
+    font-size: 0.875rem;
     font-weight: 600;
-    margin: 0 0 0.5rem;
-    color: var(--foreground);
   }
 
-  p {
-    color: var(--foreground-muted);
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    margin: 0 0 1.25rem;
+  .comment {
+    padding: 0.875rem 1rem;
   }
 
-  .example {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: start;
-    gap: 0.45rem;
-    padding: 0.75rem 1rem;
-    background: rgba(251, 146, 60, 0.05);
-    border: 1px solid rgba(251, 146, 60, 0.15);
-    border-radius: 8px;
-    font-family: "JetBrains Mono", monospace;
+  .bot {
+    border-top: 1px solid var(--border);
+  }
+
+  .meta {
+    margin: 0;
+    color: var(--text-secondary, var(--foreground-subtle));
+    font-size: 0.75rem;
+  }
+
+  .body {
+    margin: 0.5rem 0 0;
+    color: var(--text-primary, var(--foreground));
     font-size: 0.8125rem;
+    line-height: 1.5;
+    word-break: break-word;
   }
 
-  .prompt {
-    color: var(--primary-400);
-    font-weight: 600;
+  .status-list {
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--text-secondary, var(--foreground-muted));
+    font-size: 0.8125rem;
+    line-height: 1.6;
   }
 
-  code {
-    color: var(--foreground-muted);
-    line-height: 1.4;
+  .success {
+    color: var(--success, #34d399);
   }
 
   @media (max-width: 640px) {
@@ -122,8 +142,9 @@
       padding: 3.5rem 0;
     }
 
-    .grid {
-      grid-template-columns: 1fr;
+    .thread-header,
+    .comment {
+      padding: 0.75rem;
     }
   }
 </style>

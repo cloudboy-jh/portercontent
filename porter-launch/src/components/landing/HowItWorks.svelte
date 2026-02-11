@@ -10,7 +10,7 @@
   <div class="container">
     <header class="section-header">
       <p class="eyebrow">How it works</p>
-      <h2>Porter runs where your code already lives</h2>
+      <h2>Four steps to your first PR</h2>
     </header>
     <div class="steps">
       {#each steps as step, index}
