@@ -37,8 +37,9 @@ const marketingCollection = defineCollection({
       .array(
         z.object({
           title: z.string(),
-          description: z.string(),
-          example: z.string()
+          issue: z.string(),
+          command: z.string(),
+          pr: z.string()
         })
       )
       .optional()
