@@ -1,0 +1,58 @@
+---
+import MobileTableOfContents from "virtual:starlight/components/MobileTableOfContents";
+import TableOfContents from "virtual:starlight/components/TableOfContents";
+---
+
+{
+  Astro.props.toc && (
+    <>
+      <div class="lg:sl-hidden">
+        <MobileTableOfContents {...Astro.props} />
+      </div>
+      <aside class="right-sidebar-panel sl-hidden lg:sl-block" aria-label="On this page">
+        <div class="sl-container right-sidebar-container">
+          <TableOfContents {...Astro.props} />
+        </div>
+      </aside>
+    </>
+  )
+}
+
+<style>
+  @layer starlight.core {
+    .right-sidebar-panel {
+      padding: 1rem var(--sl-sidebar-pad-x);
+      border-left: 1px solid color-mix(in oklab, var(--sl-color-accent) 12%, var(--sl-color-hairline));
+    }
+
+    .right-sidebar-container {
+      width: 15.5rem;
+      max-width: min(15.5rem, calc(100vw - var(--sl-sidebar-width) - 4rem));
+      position: sticky;
+      top: calc(var(--sl-nav-height) + 0.75rem);
+      max-height: calc(100vh - var(--sl-nav-height) - 1.25rem);
+      overflow: auto;
+      padding-right: 0.25rem;
+    }
+
+    .right-sidebar-panel :global(h2) {
+      color: var(--sl-color-white);
+      font-size: var(--sl-text-base);
+      font-weight: 600;
+      margin-bottom: 0.55rem;
+    }
+
+    .right-sidebar-panel :global(a) {
+      display: block;
+      font-size: var(--sl-text-xs);
+      line-height: 1.35;
+      color: var(--sl-color-gray-3);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .right-sidebar-panel :global(a:hover) {
+      color: var(--sl-color-white);
+    }
+  }
+</style>

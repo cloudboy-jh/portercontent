@@ -20,7 +20,8 @@ export default defineConfig({
       customCss: ["./src/styles/starlight-custom.css"],
       components: {
         SiteTitle: "./src/components/starlight/SiteTitle.astro",
-        ThemeSelect: "./src/components/starlight/ThemeSelect.astro"
+        ThemeSelect: "./src/components/starlight/ThemeSelect.astro",
+        PageSidebar: "./src/components/starlight/PageSidebar.astro"
       },
       lastUpdated: true,
       sidebar: [
