@@ -1,30 +1,39 @@
 ---
-title: "User config gist"
-description: "Secure per-user runtime configuration pattern using private GitHub Gists."
+title: "User config and secrets"
+description: "D1-backed user settings and encrypted provider secrets used during task execution."
 slug: "docs/configuration/user-config-gist"
 category: "configuration"
 order: 1
-updated: 2026-02-09
+updated: 2026-02-19
 sidebar:
   order: 1
 ---
 
-Porter reads per-user configuration from a private GitHub Gist.
+Porter stores per-user settings and credentials in Cloudflare D1.
 
 ## Required shape
 
 ```json
 {
+  "version": "1.0.0",
+  "execution_mode": "cloud",
+  "fly_app_name": "porter-prod",
   "fly_token": "...",
   "anthropic_api_key": "...",
   "amp_api_key": "...",
-  "default_agent": "opencode"
+  "default_agent": "opencode",
+  "settings": {
+    "max_retries": 3,
+    "task_timeout": 90,
+    "poll_interval": 10
+  }
 }
 ```
 
 ## Field expectations
 
 - `fly_token`: token with permission to create and manage machines.
+- `fly_app_name`: target Fly app where Porter starts machines.
 - `anthropic_api_key`: required when running Anthropic-backed agent paths.
 - `amp_api_key`: required for Amp execution.
 - `default_agent`: fallback when command does not specify an agent.
@@ -33,23 +42,25 @@ Porter reads per-user configuration from a private GitHub Gist.
 
 ```ts
 interface UserConfig {
+  version: string;
+  executionMode: "cloud" | "priority";
   flyToken: string;
-  anthropicKey: string;
-  ampKey?: string;
-  openaiKey?: string;
-  defaultAgent: string;
+  flyAppName?: string;
+  agents: Record<string, { enabled: boolean; priority?: "low" | "normal" | "high" }>;
+  providerCredentials?: Record<string, Record<string, string>>;
+  settings: { maxRetries: number; taskTimeout: number; pollInterval: number };
 }
 ```
 
 ## Runtime usage
 
-- Porter loads this config after webhook validation.
+- Porter loads this configuration after webhook validation.
 - Porter injects required credentials into machine environment variables.
-- Credentials remain user-owned and are not hardcoded into repos.
+- Credentials are encrypted at rest and are not hardcoded into repositories.
 
 ## Security recommendations
 
-- Keep Gist private and owned by the same GitHub user invoking Porter.
+- Use Porter settings while authenticated as the same GitHub user that will invoke commands.
 - Rotate credentials regularly and immediately after suspected exposure.
 - Do not commit raw key values to repository files.
 
@@ -61,9 +72,9 @@ interface UserConfig {
 
 ## Failure symptoms and fixes
 
-### Gist not found
+### Credentials not configured
 
-Ensure Porter account is linked to the same GitHub identity that owns the Gist.
+Ensure you are signed in as the expected GitHub identity and that required keys are saved.
 
 ### Auth errors in worker
 

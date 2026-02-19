@@ -4,7 +4,7 @@ description: "Canonical task and configuration shapes used throughout Porter run
 slug: "docs/api/data-models"
 category: "api"
 order: 3
-updated: 2026-02-09
+updated: 2026-02-19
 sidebar:
   order: 3
 ---
@@ -14,16 +14,25 @@ sidebar:
 ```ts
 interface Task {
   id: string;
-  status: "queued" | "running" | "complete" | "failed";
-  repo: string;
+  status: "queued" | "running" | "success" | "failed" | "timed_out";
+  repoOwner: string;
+  repoName: string;
   issueNumber: number;
+  issueTitle: string;
+  issueBody: string;
   agent: string;
-  prompt: string;
-  machineId?: string;
+  priority: number;
+  progress: number;
+  createdBy: string;
+  branch?: string;
   prUrl?: string;
-  createdAt: Date;
-  completedAt?: Date;
-  error?: string;
+  callbackAttempts?: number;
+  callbackMaxAttempts?: number;
+  callbackLastHttpCode?: number;
+  createdAt: string;
+  startedAt?: string;
+  completedAt?: string;
+  errorMessage?: string;
 }
 ```
 
@@ -39,19 +48,25 @@ Field intent:
 
 ```ts
 interface UserConfig {
+  version: string;
+  executionMode: "cloud" | "priority";
   flyToken: string;
-  anthropicKey: string;
-  ampKey?: string;
-  openaiKey?: string;
-  defaultAgent: string;
+  flyAppName?: string;
+  agents: Record<string, { enabled: boolean; priority?: "low" | "normal" | "high" }>;
+  providerCredentials?: Record<string, Record<string, string>>;
+  settings: {
+    maxRetries: number;
+    taskTimeout: number;
+    pollInterval: number;
+  };
 }
 ```
 
 ## Notes
 
 - `status` tracks the end-to-end execution lifecycle.
-- `machineId` links a task to Fly runtime state.
-- `prUrl` is set when agent execution results in a pull request.
+- `branch` and `prUrl` link issue execution to Git state changes.
+- callback fields support retry/idempotency and callback diagnostics.
 
 ## Modeling recommendations
 

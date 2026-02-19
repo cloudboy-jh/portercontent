@@ -4,7 +4,7 @@ description: "HTTP surface for ingestion, task lifecycle, callbacks, and user co
 slug: "docs/api/endpoints"
 category: "api"
 order: 1
-updated: 2026-02-09
+updated: 2026-02-19
 sidebar:
   order: 1
 ---
@@ -24,19 +24,35 @@ Expected behavior:
 - Valid signature + valid command -> create task.
 - Invalid signature or unsupported payload -> reject request.
 
+## Auth and session
+
+```http
+GET  /api/auth/github
+GET  /api/auth/github/callback
+GET  /api/auth/github/installed
+GET  /api/auth/diagnostics
+POST /api/auth/logout
+```
+
+These routes handle GitHub OAuth sign-in, installation handoff, and auth diagnostics.
+
 ## Tasks
 
 ```http
 GET    /api/tasks
 POST   /api/tasks
-GET    /api/tasks/:id
-DELETE /api/tasks/:id
+GET    /api/tasks/history
+GET    /api/tasks/:id/status
+POST   /api/tasks/:id/retry
+POST   /api/tasks/:id/stop
 ```
 
 - `GET /api/tasks`: list tasks
 - `POST /api/tasks`: create task (internal)
-- `GET /api/tasks/:id`: fetch task status
-- `DELETE /api/tasks/:id`: cancel task
+- `GET /api/tasks/history`: task feed/history view
+- `GET /api/tasks/:id/status`: fetch current task status
+- `POST /api/tasks/:id/retry`: retry a failed task
+- `POST /api/tasks/:id/stop`: request cancellation/stop
 
 Recommended response model:
 
@@ -59,10 +75,42 @@ Expected callback payload fields typically include task id, status, and optional
 ```http
 GET /api/config
 PUT /api/config
+PUT /api/config/credentials
+GET /api/config/provider-credentials
+PUT /api/config/provider-credentials
+PUT /api/config/fly
+GET /api/config/providers
+POST /api/config/validate/anthropic
+POST /api/config/validate/fly
 ```
 
-- `GET /api/config`: load user config from Gist
-- `PUT /api/config`: update user config in Gist
+- `GET /api/config`: load user config from D1
+- `PUT /api/config`: update user config in D1
+- Provider credential routes: configure key status and secret writes
+- Validation routes: verify provider and Fly credentials before runtime
+
+## GitHub data
+
+```http
+GET /api/github/summary
+GET /api/github/repositories
+GET /api/github/installations
+GET /api/github/orgs
+GET /api/github/profile
+GET /api/github/issues/:owner/:repo/:number
+```
+
+These routes drive authenticated UI data for installations, repositories, and issue context.
+
+## Ops and health
+
+```http
+GET /api/startup/check
+GET /api/rate-limit
+```
+
+- `GET /api/startup/check`: required env and D1 readiness checks
+- `GET /api/rate-limit`: current GitHub API rate limit information
 
 ## Error handling guidance
 

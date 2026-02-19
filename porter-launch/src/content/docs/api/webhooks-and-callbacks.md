@@ -4,7 +4,7 @@ description: "Inbound GitHub trigger contracts and outbound worker completion si
 slug: "docs/api/webhooks-and-callbacks"
 category: "api"
 order: 2
-updated: 2026-02-09
+updated: 2026-02-19
 sidebar:
   order: 2
 ---
@@ -27,6 +27,8 @@ Supported commands:
 @porter opencode
 @porter claude
 @porter amp
+@porter opencode --priority=high fix flaky tests
+@porter --priority=low clean docs typos
 ```
 
 Parser rules should:
@@ -34,6 +36,7 @@ Parser rules should:
 - Ignore comments without `@porter` prefix.
 - Normalize spacing and handle minor formatting variation.
 - Reject unknown agent names with a clear issue reply.
+- Default to `opencode` when no agent is supplied.
 
 ## Completion callback contract
 
@@ -42,7 +45,7 @@ Workers call Porter when execution completes:
 ```bash
 curl -X POST "$CALLBACK_URL" \
   -H "Content-Type: application/json" \
-  -d '{"task_id": "task_abc123", "status": "complete"}'
+  -d '{"task_id": "task_abc123", "status": "success"}'
 ```
 
 Porter uses this callback to finalize task state and comment back on the issue.
@@ -52,8 +55,10 @@ Porter uses this callback to finalize task state and comment back on the issue.
 Typical statuses include:
 
 - `complete`
+- `success`
 - `failed`
 - `cancelled`
+- `timed_out`
 
 Each status should map to a deterministic update in task state and issue comment messaging.
 

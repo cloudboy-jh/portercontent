@@ -4,7 +4,7 @@ description: "From first sign-in to validated issue-to-PR execution in one guide
 slug: "docs/getting-started/quickstart"
 category: "getting-started"
 order: 1
-updated: 2026-02-09
+updated: 2026-02-19
 sidebar:
   order: 1
 ---
@@ -15,7 +15,7 @@ Use this page when you want a reliable first run, not just a demo. You will veri
 
 - A GitHub repository where you can create issues and open pull requests.
 - A GitHub account that can install apps for that repository.
-- API credentials for your chosen model provider and Fly.
+- API credentials for your model provider(s) and Fly.
 - Access to the Porter web app.
 
 ## Step 1: Sign in with GitHub
@@ -25,7 +25,7 @@ Authenticate in the Porter web app using the same GitHub identity that owns or c
 Why this matters:
 
 - Porter links webhook events, user config, and execution ownership through your GitHub identity.
-- If the wrong account signs in, Porter may not find your repository or config Gist.
+- If the wrong account signs in, Porter may not find your repository or saved configuration.
 
 ## Step 2: Install the Porter GitHub App
 
@@ -36,9 +36,9 @@ Recommended scope:
 - Start with one test repository.
 - Expand permissions to more repos after your first successful run.
 
-## Step 3: Create your config gist
+## Step 3: Configure credentials in Porter settings
 
-Create a private GitHub Gist with execution credentials and a default agent.
+Open Porter settings and save your execution credentials.
 
 ```json
 {
@@ -51,7 +51,8 @@ Create a private GitHub Gist with execution credentials and a default agent.
 
 Notes:
 
-- Keep the Gist private.
+- Credentials are encrypted and stored server-side in Porter (D1-backed).
+- Optional gist mirroring can exist, but task execution does not depend on it.
 - Use valid keys only; malformed values are a common cause of failed first runs.
 - `default_agent` is used when a command omits an explicit agent name.
 
@@ -83,11 +84,11 @@ Symptom: no task starts after `@porter <agent>`.
 
 Fix: confirm the GitHub App has access to the exact repository where the comment was posted.
 
-### Invalid or missing Gist credentials
+### Invalid or missing credentials
 
 Symptom: task starts then fails before agent execution.
 
-Fix: re-check `fly_token` and provider API keys in your private Gist.
+Fix: re-check `fly_token` and provider API keys in Porter settings, then run validation again.
 
 ### Unsupported command format
 

@@ -4,7 +4,7 @@ description: "Lifecycle from `@porter` command to callback, issue update, and pu
 slug: "docs/concepts/core-flow"
 category: "concepts"
 order: 2
-updated: 2026-02-09
+updated: 2026-02-19
 sidebar:
   order: 2
 ---
@@ -14,14 +14,14 @@ sidebar:
 1. A user comments `@porter <agent>` on a GitHub issue.
 2. GitHub sends an `issue_comment.created` webhook to Porter.
 3. Porter validates signature, actor, repository scope, and command syntax.
-4. Porter loads user config from private GitHub Gist.
+4. Porter resolves actor OAuth/session context and loads D1-backed user settings and secrets.
 5. Porter enriches the prompt with issue, repository, and optional `AGENTS.md` context.
 6. Porter creates a Fly Machine with the task payload.
 7. Worker container clones the repository and checks out a task branch.
 8. Selected agent runs in non-interactive mode.
 9. Worker pushes changes and opens a pull request when changes are produced.
 10. Worker calls Porter completion callback with status and metadata.
-11. Porter finalizes task state and comments on the issue with result details.
+11. Porter reconciles callback and watchdog state, then comments on the issue with result details.
 12. Machine auto-destroys after process exit.
 
 ## Why this flow
@@ -34,7 +34,7 @@ sidebar:
 
 Typical status progression:
 
-`queued -> running -> complete` or `queued -> running -> failed`
+`queued -> running -> success` or `queued -> running -> failed` (with `timed_out` for stale runs)
 
 Status is persisted so API consumers and UI components can render reliable task progress.
 
@@ -47,5 +47,5 @@ Status is persisted so API consumers and UI components can render reliable task 
 ## Operational notes
 
 - One issue can have multiple Porter tasks over time.
-- Agent choice is explicit (`@porter opencode`) or defaults from user config.
+- Agent choice is explicit (`@porter opencode`) or defaults to `opencode` when omitted.
 - Cancellation flows can be bound to issue lifecycle events like close/reopen.

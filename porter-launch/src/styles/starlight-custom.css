@@ -46,7 +46,8 @@
   --sl-color-text: var(--porter-fg-2);
   --sl-color-white: var(--porter-fg-0);
   --sl-sidebar-width: 19.5rem;
-  --sl-content-width: 48rem;
+  --sl-content-width: 46rem;
+  --sl-toc-width: 16rem;
 }
 
 :root[data-theme="light"],
@@ -211,6 +212,40 @@ header.header {
 
 .right-sidebar-panel {
   border-left: 1px solid color-mix(in oklab, var(--sl-color-accent) 12%, var(--sl-color-hairline));
+}
+
+@media (min-width: 72rem) {
+  .main-pane {
+    min-width: 0;
+  }
+
+  .main-pane .content-panel {
+    margin-right: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .right-sidebar-panel {
+    width: min(16rem, 19vw);
+    min-width: 14.5rem;
+    max-width: 16rem;
+    position: sticky;
+    top: var(--sl-nav-height);
+    align-self: flex-start;
+    max-height: calc(100vh - var(--sl-nav-height));
+    overflow: auto;
+  }
+
+  .right-sidebar-panel .right-sidebar-container {
+    padding-inline: 0.9rem;
+  }
+
+  .right-sidebar-panel .sl-container {
+    max-width: none;
+  }
+
+  .right-sidebar-panel a {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
 }
 
 /* Search */
